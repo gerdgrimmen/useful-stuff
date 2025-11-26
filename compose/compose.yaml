@@ -1,5 +1,13 @@
+# https://betterstack.com/community/guides/scaling-docker/podman-compose/
 services:
   web:
     image: nginx
     ports:
       - "8000:80"
+# nginx for frontend
+# reverse proxy to
+# auth
+
+# reverse proxy to
+# api
+
