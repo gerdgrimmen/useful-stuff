@@ -40,3 +40,16 @@ if error == OK:
 		print("Unexpected data")
 else:
 	print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+
+
+# first implementation snippet
+
+func load_game_data():
+	var file = FileAccess.open("user://data.json", FileAccess.READ)
+	var content = file.get_as_text()
+	game_data = JSON.parse_string(content)
+
+
+func save_game_data():
+	var file = FileAccess.open("user://data.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(game_data))
