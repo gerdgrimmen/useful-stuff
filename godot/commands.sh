@@ -44,6 +44,8 @@ else:
 
 # first implementation snippet
 
+var game_data
+
 func load_game_data():
 	var file = FileAccess.open("user://data.json", FileAccess.READ)
 	var content = file.get_as_text()
@@ -53,3 +55,9 @@ func load_game_data():
 func save_game_data():
 	var file = FileAccess.open("user://data.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(game_data))
+
+# game_data file: data.json
+{"levels": [
+	{"name": "01", "word_list": ["sh", "psh", "shhh", "zip"]}
+	,{"name": "02", "word_list": []}
+]}
