@@ -1,0 +1,43 @@
+# https://betterstack.com/community/guides/scaling-docker/podman-compose/
+services:
+  web:
+    image: docker.io/nginx:latest
+    links:
+      - "auth:auth"
+      - "worst:worst"
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    # networks:
+    #   - custom
+  auth:
+    image: docker.io/nginx:latest
+    # links:
+    #   - "auth:auth"
+    ports:
+      - "8020:80"
+    # environment:
+    #   - NGINX_HOST=auth
+    networks:
+      - custom
+  worst:
+    image: docker.io/nginx:latest
+    # links:
+    #   - "auth:auth"
+    ports:
+      - "8040:80"
+    environment:
+      - NGINX_HOST=127.0.0.1
+    # networks:
+    #   - custom
+  networks:
+    custom:
+  #     driver: bridge
+# nginx for frontend
+# reverse proxy to
+# auth
+
+# reverse proxy to
+# api
+
