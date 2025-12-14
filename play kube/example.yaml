@@ -9,33 +9,33 @@ kind: Pod
 metadata:
   creationTimestamp: "2021-09-20T17:40:19Z"
   labels:
-	app: php
+  	app: php
   name: php
 spec:
   containers:
   - args:
-	- apache2-foreground
-	command:
-	- docker-php-entrypoint
-	env:
-	- name: PATH
+	  - apache2-foreground
+	  command:
+	  - docker-php-entrypoint
+	  env:
+	  - name: PATH
   	value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-	- name: TERM
+	  - name: TERM
   	value: xterm
-	- name: container
-  	...
-	- name: PHP_EXTRA_BUILD_DEPS
+	  - name: container
+  	
+	  - name: PHP_EXTRA_BUILD_DEPS
   	value: apache2-dev
-	- name: APACHE_ENVVARS
+	  - name: APACHE_ENVVARS
   	value: /etc/apache2/envvars
-	image: php-7.2-apache-mysqli:latest
-	name: apache
-	ports:
-	- containerPort: 80
+	  image: php-7.2-apache-mysqli:latest
+	  name: apache
+	  ports:
+	  - containerPort: 80
   	hostPort: 8080
   	protocol: TCP
-	resources: {}
-	securityContext:
+	  resources: {}
+	  securityContext:
   	allowPrivilegeEscalation: true
   	capabilities:
     	drop:
@@ -45,8 +45,8 @@ spec:
   	privileged: false
   	readOnlyRootFilesystem: false
   	seLinuxOptions: {}
-	tty: true
-	workingDir: /var/www/html
+	  tty: true
+	  workingDir: /var/www/html
   dnsConfig: {}
   restartPolicy: Never
 status: {}
